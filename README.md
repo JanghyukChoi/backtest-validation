@@ -21,8 +21,8 @@ rules **committed before the data was downloaded**, and publishes the result eve
 
 | Gate (fixed in advance) | Result | Pass |
 |---|---|---|
-| G1 Walk-forward out-of-sample Sharpe > 0 | -0.05 | no |
-| G2 Walk-forward Sharpe > buy and hold over the same windows | -0.44 (difference) | no |
+| G1 Walk-forward out-of-sample Sharpe > 0 (5 test years, 1,825 days; CAGR -9.0%) | -0.05 | no |
+| G2 Walk-forward Sharpe > buy and hold over the same windows (buy and hold: 0.39) | -0.44 (difference) | no |
 | G3 Probability of backtest overfitting (CSCV) < 0.20 | 0.435 | no |
 | G4 Deflated Sharpe ratio >= 0.95 | 0.996 | yes |
 | G5 Monte Carlo permutation p-value < 0.05 | 0.077 | no |
@@ -36,7 +36,7 @@ asks a stricter question (does the timing rule beat shuffled price paths when th
 repeated each time?) and the answer is "not clearly" (p = 0.077). Both facts are reported.
 
 Sanity checks built in: a perfect-foresight signal must give a huge Sharpe (it gives 10.6), and a deliberately
-mis-aligned signal that uses the same day's close shows how look-ahead inflates results (Sharpe 1.37 vs 1.18
+mis-aligned signal that uses the same day's close shows how look-ahead inflates results (cost-free Sharpe 1.37 vs 1.18
 for the correct alignment). The correct alignment is `pos[t] = signal[t-1]`.
 
 ## Methods
